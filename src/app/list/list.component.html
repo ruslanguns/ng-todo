@@ -1,0 +1,25 @@
+<div class="jumbotron mt-2 rounded-0" [@bounce]="bounce">
+  <h1 class="display-4 gfont text-center">Todo List</h1>
+  <p class="lead text-center">Get. It. Done.</p>
+</div>
+<div class="row mb-3">
+  <div class="col-sm-6 col-lg-5 offset-lg-3 ">
+    <input [(ngModel)]="item" class="form-control rounded-0" type="text" />
+  </div>
+  <div class="col-sm-2 col-md-3">
+    <button class="btn btn-info rounded-0" (click)="addItem()">
+      Add Item
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-lg-5 offset-lg-3">
+    <ul class="list-group">
+      <app-list-item
+        *ngFor="let listItem of listItems"
+        [listItem]="listItem"
+        (deletedItem)="deleteItemFromList($event)"
+      ></app-list-item>
+    </ul>
+  </div>
+</div>

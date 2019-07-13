@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Baloo&display=swap");
+
+.gfont {
+  font-family: "Baloo", cursive;
+}
+
+.jumbotron {
+  color: #fcf;
+  background-color: #333;
+}
+
+button:hover {
+  box-shadow: 0.15em 0.25em #e6e6e6;
+}

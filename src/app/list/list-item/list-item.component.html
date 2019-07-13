@@ -1,0 +1,36 @@
+<li
+  href="#"
+  [@jello]="jello"
+  class="list-group-item list-group-item-action mt-1 rounded-0"
+  (click)="onItemClick(listItem)"
+  [ngStyle]="{ 'background-color': todoItem }"
+>
+  {{ listItem.itemName }}
+  <span>
+    <fa
+      name="ban"
+      class="fa-pull-right mr-2 listIcon"
+      (click)="onDeleteIconClick()"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Delete this item?"
+    ></fa>
+    <fa
+      name="check"
+      class="fa-pull-right mr-2 listIcon"
+      (click)="onCompleteIconClick()"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Complete this item"
+    ></fa>
+    <fa
+      name="times"
+      class="fa-pull-right mr-2 listIcon"
+      (click)="onDelete(listItem)"
+      [hidden]="deleteHidden"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Delete this item for real"
+    ></fa
+  ></span>
+</li>

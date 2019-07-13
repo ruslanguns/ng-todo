@@ -1,0 +1,11 @@
+.listIcon:hover {
+  cursor: grab;
+}
+
+.listIcon:active {
+  cursor: grabbing;
+}
+
+li:hover {
+  box-shadow: 0.4em 0.35em #ededed;
+}
