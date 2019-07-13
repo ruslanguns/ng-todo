@@ -10,6 +10,7 @@ import { jello } from "ng-animate";
   animations: [trigger("jello", [transition("* => *", useAnimation(jello))])]
 })
 export class ListItemComponent implements OnInit {
+  jello: any;
   @Input() listItem: listItemModel;
   @Output() deletedItem = new EventEmitter<any>();
   todoItem: String = "#fff2e0";
