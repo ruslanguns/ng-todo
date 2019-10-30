@@ -8,7 +8,7 @@
   </div>
   <div class="col-sm-2 col-md-3">
     <button class="btn btn-info rounded-0" (click)="addItem()">
-      Add Item
+      {{buttonname}}
     </button>
   </div>
 </div>
@@ -19,6 +19,7 @@
         *ngFor="let listItem of listItems"
         [listItem]="listItem"
         (deletedItem)="deleteItemFromList($event)"
+        (editItem)="editItem($event)"
       ></app-list-item>
     </ul>
   </div>

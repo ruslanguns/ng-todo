@@ -13,6 +13,7 @@ export class ListItemComponent implements OnInit {
   jello: any;
   @Input() listItem: listItemModel;
   @Output() deletedItem = new EventEmitter<any>();
+  @Output() editItem = new EventEmitter<any>();
   todoItem: String = "#fff2e0";
   deleteHidden: boolean = true;
   constructor() {}
@@ -41,5 +42,9 @@ export class ListItemComponent implements OnInit {
 
   onDelete(listItem) {
     this.deletedItem.emit(listItem);
+  }
+  onEditIconClick(listItem){
+    this.editItem.emit(listItem);
+
   }
 }
