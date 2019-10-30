@@ -7,6 +7,14 @@
 >
   {{ listItem.itemName }}
   <span>
+      <fa
+      name="edit"
+      class="fa-pull-right mr-2 listIcon"
+      (click)="onEditIconClick(listItem)"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="Edit this item?"
+    ></fa>
     <fa
       name="ban"
       class="fa-pull-right mr-2 listIcon"
