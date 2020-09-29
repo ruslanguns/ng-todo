@@ -27,7 +27,7 @@ export class ListComponent implements AfterViewInit {
   @HostListener('window:beforeunload', ['$event'])
   unloadHandler(event: Event) {
     if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('listItems', JSON.stringify(this.listItems));
+      this.updateState();
     }
   }
 
@@ -44,7 +44,9 @@ export class ListComponent implements AfterViewInit {
       });
     } else {
       const randomId = Math.floor(100000 + Math.random() * 900000);
-      this.listItems.push(new listItemModel(this.item, false, randomId));
+      const newItem = new listItemModel(this.item, false, randomId);
+      this.listItems.push(newItem);
+      this.updateState();
       if (this.buttonname == 'Edit Item') {
         this.toastr.success('Item: ' + this.item, 'Item Edited!', {
           timeOut: 1500
@@ -64,11 +66,17 @@ export class ListComponent implements AfterViewInit {
       timeOut: 1500
     });
     this.listItems = this.listItems.filter(itemID => itemID.id !== item.id);
+    this.updateState();
   }
 
   editItem(item: any) {
     this.item = item.itemName;
     this.buttonname = 'Edit Item';
     this.listItems = this.listItems.filter(itemID => itemID.id !== item.id);
+    this.updateState();
+  }
+
+  private updateState(): void {
+    localStorage.setItem('listItems', JSON.stringify(this.listItems));
   }
 }
