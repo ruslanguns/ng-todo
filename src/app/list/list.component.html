@@ -18,6 +18,7 @@
       <app-list-item
         *ngFor="let listItem of listItems"
         [listItem]="listItem"
+        (completeItem)="completeItemFromList($event)"
         (deletedItem)="deleteItemFromList($event)"
         (editItem)="editItem($event)"
       ></app-list-item>

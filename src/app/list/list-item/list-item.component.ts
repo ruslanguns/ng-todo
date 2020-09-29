@@ -12,6 +12,7 @@ import { jello } from "ng-animate";
 export class ListItemComponent implements OnInit {
   jello: any;
   @Input() listItem: listItemModel;
+  @Output() completeItem = new EventEmitter<any>();
   @Output() deletedItem = new EventEmitter<any>();
   @Output() editItem = new EventEmitter<any>();
   todoItem: String = "#fff2e0";
@@ -25,8 +26,10 @@ export class ListItemComponent implements OnInit {
   onCompleteIconClick() {
     if (this.todoItem === "#fff2e0") {
       this.todoItem = "#c4faac";
+      this.completeItem.emit({item: this.listItem, isChecked: true});
     } else {
       this.todoItem = "#fff2e0";
+      this.completeItem.emit({item: this.listItem, isChecked: false});
     }
   }
 

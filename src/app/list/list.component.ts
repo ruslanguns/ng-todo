@@ -61,6 +61,19 @@ export class ListComponent implements AfterViewInit {
     }
   }
 
+  completeItemFromList(event: any) {
+    const {item, isChecked} = event;
+    this.toastr.success(item.itemName + ' completed', 'Awesome!', {
+      timeOut: 1500
+    });
+    this.listItems.map(listItems => {
+      if (listItems.id === item.id) {
+        listItems.isChecked = isChecked;
+        this.updateState();
+      }
+    });
+  }
+
   deleteItemFromList(item: any) {
     this.toastr.info(item.itemName + ' deleted from list', 'Awesome!', {
       timeOut: 1500
